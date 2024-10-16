@@ -5,14 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChatByLeynard"
         mc:Ignorable="d"
-        Title="Chat" Height="400" Width="600" ResizeMode="CanMinimize">
+        Title="Chat" Height="400" Width="600" ResizeMode="CanMinimize" Icon="/programmIcon.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <ListBox x:Name="messagesListBox" Margin="10,10,10,10" Grid.RowSpan="2"/>
+        <ListBox x:Name="messagesListBox" Margin="10,10,10,10" Grid.RowSpan="2"
+            MouseRightButtonDown="MessagesListBox_MouseRightButtonDown">
+        <ListBox.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="Удалить сообщение" Click="DeleteMessage_Click"/>
+            </ContextMenu>
+        </ListBox.ContextMenu>
+        </ListBox>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10">
             <StackPanel Margin="0,0,10,0">

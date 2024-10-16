@@ -3,6 +3,8 @@ using System;
 using System.Data;
 using System.Windows;
 using System.Windows.Threading;
+using System.Windows.Input;
+using System.Windows.Controls;
 
 namespace ChatByLeynard
 {
@@ -57,11 +59,33 @@ namespace ChatByLeynard
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-             MainWindow mainWindow = new MainWindow();
-
+            MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
-
             this.Close();
+        }
+
+        private void MessagesListBox_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (messagesListBox.SelectedItem != null)
+            {
+                var contextMenu = (ContextMenu)messagesListBox.Resources["contextMenu"];
+                contextMenu.IsOpen = true;
+            }
+        }
+
+        private void DeleteMessage_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedMessage = messagesListBox.SelectedItem as string;
+
+            if (selectedMessage != null)
+            {
+                string[] parts = selectedMessage.Split(':');
+                if (parts.Length > 0 && int.TryParse(parts[0], out int messageId))
+                {
+                    database.DeleteMessage(messageId);
+                    RefreshMessages();
+                }
+            }
         }
     }
 }

@@ -66,5 +66,16 @@ namespace ChatByLeynard
                 command.ExecuteNonQuery();
             }
         }
+        public void DeleteMessage(int messageId)
+        {
+            string query = "DELETE FROM messages WHERE id = @id";
+
+            using (MySqlCommand command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@id", messageId);
+                command.ExecuteNonQuery();
+            }
+            CloseConnection();
+        }
     }
 }
