@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:ChatByLeynard"
         mc:Ignorable="d"
         Title="Chat" Height="400" Width="600" ResizeMode="CanMinimize" Icon="/programmIcon.png">
-    <Grid>
+    <Grid Background="DarkKhaki">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <ListBox x:Name="messagesListBox" Margin="10,10,10,10" Grid.RowSpan="2"
+        <ListBox x:Name="messagesListBox" Margin="10,10,10,50" Grid.RowSpan="2"
             MouseRightButtonDown="MessagesListBox_MouseRightButtonDown">
         <ListBox.ContextMenu>
             <ContextMenu>
@@ -21,7 +21,7 @@
         </ListBox.ContextMenu>
         </ListBox>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10">
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10" Background="DarkKhaki">
             <StackPanel Margin="0,0,10,0">
                 <TextBlock Text="Сообщение" />
                 <TextBox x:Name="messageTextBox" Width="200" />
@@ -30,8 +30,8 @@
                 <TextBlock Text="Имя" />
                 <TextBox x:Name="authorTextBox"  Width="100"/>
             </StackPanel>
-            <Button Content="Отправить" Click="SendButton_Click" Width="100" Height="30" />
-            <Button Content="Выход" Click="ExitButton_Click" Width="100" Height="30" Margin="10,0,0,0" />
+            <Button Content="Отправить" Click="SendButton_Click" Width="100" Height="30" Style="{DynamicResource logB}" />
+            <Button Content="Выход" Click="ExitButton_Click" Width="100" Height="30" Margin="10,0,0,0" Style="{DynamicResource logB}"/>
         </StackPanel>
     </Grid>
 </Window>

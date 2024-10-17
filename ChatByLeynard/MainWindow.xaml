@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:ChatByLeynard"
         mc:Ignorable="d"
         Title="Connect to Database" Height="250" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="/programmIcon.png">
-    <Grid>
+    <Grid Background="#96A66C">
+        
+
         <StackPanel>
             <TextBlock Text="server"  VerticalAlignment="Top" HorizontalAlignment="Center"/>
         <TextBox x:Name="serverTextBox"   VerticalAlignment="Top"/>
@@ -17,6 +19,7 @@
         <TextBlock Text="Password"  VerticalAlignment="Top" HorizontalAlignment="Center"/>
         <PasswordBox x:Name="passwordBox"   VerticalAlignment="Top"/>
         </StackPanel>
-        <Button Content="Connect" Click="ConnectButton_Click" Width="100" Height="30" Margin="10,170,10,10"/>
+        <Button Content="Connect" Click="ConnectButton_Click" Width="100" Height="30" Margin="10,170,10,10" Style="{DynamicResource logB}"/>
+       
     </Grid>
 </Window>
